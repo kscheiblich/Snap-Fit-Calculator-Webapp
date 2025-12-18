@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit.components.v1 import html
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -8,9 +9,22 @@ import matplotlib.pyplot as plt
 # ======================================================
 
 st.set_page_config(
-    page_title="Snap-Fit Design Calculator",
+    page_title="Plastic Snap-Fit Design Calculator",
     layout="wide"
 )
+
+#----------------GOOGLE ANALYTICS-----------------------
+html("""
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HN1G7V18X9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HN1G7V18X9');
+</script>
+""", height = 0, width = 0)
 
 st.markdown(
     """
@@ -105,7 +119,7 @@ defaults = default_inputs()
 # HEADER
 # ======================================================
 
-st.title("Snap-Fit Design Calculator")
+st.title("Plastic Snap-Fit Design Calculator")
 st.markdown("<p style='text-align:center;'>Analytical snap-fit sizing tool based on Bayer Snap Fit Design for Plastics</p>", unsafe_allow_html=True)
 st.divider()
 
@@ -114,7 +128,7 @@ st.divider()
 # ======================================================
 
 tab_calc, tab_param, tab_eq, tab_assump = st.tabs(
-    ["📐 Calculator", "📊 Parametric Study", "📘 Equations", "⚠️ Assumptions & Limits"]
+    ["📐 Calculator", "📊 Parametric Study", "📘 Equations", "⚠️ Assumptions, Limits, and References"]
 )
 
 # ======================================================
@@ -248,7 +262,7 @@ with tab_eq:
 # ======================================================
 
 with tab_assump:
-    st.subheader("Assumptions & References")
+    st.subheader("Assumptions, Limits, & References")
     st.markdown(
         "<div class='assumptions'>"
         "- Linear elastic material behavior<br>"
