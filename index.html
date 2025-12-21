@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Plastic Snap-Fit Design Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HN1G7V18X9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HN1G7V18X9');
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<h1>Plastic Snap-Fit Design Calculator</h1>
+<p class="subtitle">Analytical sizing tool based on Bayer Snap-Fit Design</p>
+
+<div class="container">
+  <div class="inputs">
+    <h2>Inputs</h2>
+
+    <label>Profile</label>
+    <select id="profile"></select>
+
+    <label>Elastic Modulus (psi)</label>
+    <input type="number" id="E" value="300000">
+
+    <label>Allowable Strain ε</label>
+    <input type="number" id="eps" step="0.001" value="0.02">
+
+    <label>Coefficient of Friction μ</label>
+    <input type="number" id="mu" step="0.01" value="0.30">
+
+    <label>Lead-in Angle α (deg)</label>
+    <input type="number" id="alpha" value="5">
+
+    <label>Cantilever Length L (in)</label>
+    <input type="number" id="L" value="1.0">
+
+    <label>Thickness h (in)</label>
+    <input type="number" id="h" value="0.10">
+
+    <label>Width b (in)</label>
+    <input type="number" id="b" value="0.50">
+
+    <button onclick="runCalculation()">Calculate</button>
+  </div>
+
+  <div class="outputs">
+    <h2>Outputs</h2>
+    <div id="results"></div>
+  </div>
+</div>
+
+<hr>
+
+<h2>Parametric Study</h2>
+<canvas id="chart" width="700" height="350"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="app.js"></script>
+<script src="charts.js"></script>
+
+</body>
+</html>
